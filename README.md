@@ -38,16 +38,16 @@ You could simply download those files under the `output` folder under this repo,
 2. Make sure venv / virtualenv is set up, if applicable
 3. `git clone` this repo. Feel free to make appropriate changes.
 
------
+...
 1. 确保系统上已经有Python 3（抱歉，不支持Python 2.x）
 2. 适当设置 venv / virtualenv
 3. `git clone` 本代码库，尽管修改。
 
 ## FAQ / 常见问答
-__1. __ What's the benefit of using IP whitelists? / 使用IP地址的白名单有什么好处？
-__A: __ 
+#### 1. What's the benefit of using IP whitelists? / 使用IP地址的白名单有什么好处？
+#### A: / 答: 
 Everyone wants fast, smooth, reliable internet access. This is expecially crucial for expatriates, IT professionals, and scholars living in China. Currently, most firewall-bypassing tools unconditionally route all traffic through indirect channels (or contains outdated IP tables), which has side-effects such as low thoroughput, long latency, or even restrictions from IP-distinguishing music or video websites. This repo aims to provide an IP whitelist, which can be in turn used by firewall-bypassing tools capable of distinguishing destination, and therefore providing a better solution without such side-effects.
-__答: __ 需要快速、平滑、可靠的网络连接，这对于外派人士、IT业者、学者们尤其至关重要。当代绝大多数的穿越工具会一股脑地接管所有网络流量，这会带来低吞吐、长延迟、甚至一些视听网站禁止访问的副作用。本代码库将提供一份IP白名单。
+需要快速、平滑、可靠的网络连接，这对于外派人士、IT业者、学者们尤其至关重要。当代绝大多数的穿越工具会一股脑地接管所有网络流量，这会带来低吞吐、长延迟、甚至一些视听网站禁止访问的副作用。本代码库将提供一份IP白名单。
 
 ## Random Thoughts / 随笔
 > “望长城内外，惟余莽莽；大河上下，顿失滔滔。”
