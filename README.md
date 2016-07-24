@@ -39,9 +39,11 @@ You could simply download those files under the `output` folder under this repo,
 3. `git clone` this repo. Feel free to make appropriate changes.
 
 ... ... ... 
+
 1. 确保系统上已经有Python 3（抱歉，不支持Python 2.x）
 2. 适当设置 venv / virtualenv
 3. `git clone` 本代码库，尽管修改。
+
 
 ## FAQ / 常见问答
 #### 1. What's the benefit of using IP whitelists? / 使用IP地址的白名单有什么好处？
