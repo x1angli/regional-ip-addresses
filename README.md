@@ -38,6 +38,7 @@ You could simply download those files under the `output` folder under this repo,
 2. Make sure venv / virtualenv is set up, if applicable
 3. `git clone` this repo. Feel free to make appropriate changes.
 
+-----
 1. 确保系统上已经有Python 3（抱歉，不支持Python 2.x）
 2. 适当设置 venv / virtualenv
 3. `git clone` 本代码库，尽管修改。
