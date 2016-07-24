@@ -9,7 +9,7 @@ The information (including but not limited to: documentation, code, and data) un
 ## Introduction / 介绍
 A Python script that generates regional IP (IPv4) addresses per CIDR notation. You import such IP addresses as whitelists into bypassing tools for full access of internet. 
 
-本Python脚本用于生成CIDR格式的根据不同地区的IP (IPv4)地址块。这些IP地址将可作为白名单被导入工具中，从而生成根据目标IP地址区域的路由表，最终目标是构建一个快速、无缝、相对稳定的上网工具。
+本Python脚本用于生成CIDR格式的地区内的IP (IPv4)地址块。这些IP地址将可作为白名单被导入工具中，从而生成根据目标IP地址区域的路由表，最终目标是构建一个快速、无缝、相对稳定的上网工具。
 
 ## Intended Audience / 目标用户
 This tool should be used by advanced users who has knowledge regarding networking and system administration. We assume our users are equipped with basic skills of setting up network-bypassing tools and routing table configuration. We recommend users with average IT proficiency use this tool under the guidance of your geek friends. Additionally, please keep in mind: __this tool is never intended to become any firewall-bypassing / IP disguising tool by itself.__
