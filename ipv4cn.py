@@ -4,7 +4,7 @@ import os
 import logging
 
 import requests
-from netaddr import IPSet
+from netaddr import IPSet, IPAddress
 
 __author__ = 'x1ang.li'
 
@@ -133,7 +133,21 @@ class IPv4():
         self.derive_outwall()
         self.write_outfiles()
 
+    def check_ip(self, ip):
+        ip_addr = IPAddress(ip)
+        logging.info("The IP address to be checked is: %s", ip_addr)
+
+        # Populate both IPSets
+        if self.ipset_inwall is None or self.ipset_outwall is None:
+            self.main_course()
+
+        if ip_addr in self.ipset_inwall:
+            logging.info("The IP address %s is located in the Wall", ip)
+        if ip_addr in self.ipset_outwall:
+            logging.info("The IP address %s is located out the Wall", ip)
+
 
 if __name__ == '__main__':
     program = IPv4()
     program.main_course()
+    # program.check_ip('103.4.201.16')
