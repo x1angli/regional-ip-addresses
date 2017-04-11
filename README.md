@@ -49,7 +49,16 @@ You could simply download those files under the `output` folder under this repo,
 #### 1. What's the benefit of using IP whitelists? / 使用IP地址的白名单有什么好处？
 #### A: / 答: 
 Everyone wants fast, smooth, reliable internet access. This is expecially crucial for expatriates, IT professionals, and scholars living in China. Currently, most firewall-bypassing tools unconditionally route all traffic through indirect channels (or contains outdated IP tables), which has side-effects such as low thoroughput, long latency, or even restrictions from IP-distinguishing music or video websites. This repo aims to provide an IP whitelist, which can be in turn used by firewall-bypassing tools capable of distinguishing destination, and therefore providing a better solution without such side-effects.
+
 需要快速、平滑、可靠的网络连接，这对于外派人士、IT业者、学者们尤其至关重要。当代绝大多数的穿越工具会一股脑地接管所有网络流量，这会带来低吞吐、长延迟、甚至一些视听网站禁止访问的副作用。本代码库将提供一份IP白名单。
+
+#### 2. How would you compare this tool with peers? / 与同类工具如何比较？
+#### A: / 答: 
+We are fully aware that there are some pieces of existing wheels that can achieve the task very well. For example, the one-line shell script below can generate the CIDR blocks for mainland China -- like a magic, huh? Yet we also believe that there are other features not covered by exisiting code -- The `outwall.txt`, IP addresses rest of the world, would be a perfect example.
+
+我们十分清楚市面上有一些已经被发明的非常棒的轮子。比如下面的这个单行shell脚本就能像变魔术一样生成inwall.txt。但是我们相信别的工具还是存在死角。比如别的工具很难生成`outwall.txt`。
+
+    curl 'http://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest' | grep ipv4 | grep CN | awk -F\| '{ printf("%s/%d\n", $4, 32-log($5)/log(2)) }' > chnroute.txt
 
 ## Random Thoughts / 随笔
 > “望长城内外，惟余莽莽；大河上下，顿失滔滔。”
