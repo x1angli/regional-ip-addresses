@@ -109,7 +109,7 @@ class IPv4():
         See: http://www.tcpipguide.com/free/t_IPReservedPrivateandLoopbackAddresses-3.htm
         """
 
-        self.ipset_outwall = IPSet(['0.0.0.0/0']) ^ self.ipset_inwall ^ self.ipset_reserved
+        self.ipset_outwall = IPSet(['0.0.0.0/0']) - self.ipset_inwall - self.ipset_reserved
         self.cidrs_outwall = list(self.ipset_outwall.iter_cidrs())
 
         logging.info("Finished deriving out-wall IP table(s). Total: %i CIDR blocks.", len(self.cidrs_outwall), )
@@ -150,4 +150,4 @@ class IPv4():
 if __name__ == '__main__':
     program = IPv4()
     program.main_course()
-    # program.check_ip('103.4.201.16')
+    # program.check_ip('119.29.29.29')
