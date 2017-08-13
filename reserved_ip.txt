@@ -16,8 +16,7 @@
 240.0.0.0/4
 255.255.255.255/32
 
-
-# Bank of America IP Block addresses, retrieved from https://www.whatismyip.com/asn/10794/
+# Bank of America IP Block addresses, based on https://www.whatismyip.com/asn/10794/
 # We need to directly connect to BofA's website so as to access its online banking
 171.159.0.0/16
 171.160.0.0/16
