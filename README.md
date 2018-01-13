@@ -33,17 +33,21 @@ You could simply download those files under the `output` folder under this repo,
 * `output/inwall.txt` 包含墙内的IP地址
 * `output/outwall.txt` 包含墙外的IP地址；那些已经在RFC中被保留的地址已经被去除
 
-### Developers / 开发者
-1. Make sure Python 3 are properly installed (Sorry, Python 2.x is not supported) 
-2. Make sure venv / virtualenv is set up, if applicable
-3. `git clone` this repo. Feel free to make appropriate changes.
-
+### Advanced Users & Developers / 开发者
+1. Make sure Python 3 is properly installed.
+2. `git clone` this project, or just download the .zip file from github.com and unarchive it, so as to make the project's base folder
+3. Start CLI (DOS-like command line interface, such as Command Prompt in Windows), enter the the project's base folder
+4. Setup Python virtual environment with `virtualenv ...` or `python -m venv` ...
+5. Run: `pip install -r requirements.txt`
+6. Run: `python ipv4cn.py`
 ... ... ... 
 
 1. 确保系统上已经有Python 3（抱歉，不支持Python 2.x）
-2. 适当设置 venv / virtualenv
-3. `git clone` 本代码库，尽管修改。
-
+2. `git clone` 本代码库
+3. 在命令行中，进入本项目的文件夹目录
+4. 设置并加载 venv / virtualenv
+5. 运行 `pip install -r requirements.txt` 以加载requests等第三方模块
+6. 运行 `python ipv4cn.py`
 
 ## FAQ / 常见问答
 #### 1. What's the benefit of using IP whitelists? / 使用IP地址的白名单有什么好处？
