@@ -40,6 +40,7 @@ You could simply download those files under the `output` folder under this repo,
 4. Setup Python virtual environment with `virtualenv ...` or `python -m venv` ...
 5. Run: `pip install -r requirements.txt`
 6. Run: `python ipv4cn.py`
+
 ... ... ... 
 
 1. 确保系统上已经有Python 3（抱歉，不支持Python 2.x）
