@@ -19,7 +19,7 @@ This tool should be used by advanced users who has knowledge regarding networkin
 ## How it works / 工作原理
 This tool would grab a list IP addresses from the [website of APNIC](http://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest). Such list associates IP addresses with corresponding regions/countries. Then, it would parse the list, filters out IP addresses within a certain region, then converts it into [CIDR nodation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation). After retrieving the set IP addresses inside a specified region, it would derive those IP addresses ourside that region by calculating the complement set. (Of course, those [reserved IP addresses](https://en.wikipedia.org/wiki/Reserved_IP_addresses) would also be excluded from the complement set.) Finally, both IP addresses inside region and the ones outside it would be written into a file, respectively. 
 
-本工具将从[APNIC官网](http://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest)抓取与国家或地区相对应的IP地址列表。在将IP列表进行解析，筛选出一个特定地区内的IP地址，并且转化为 [CIDR 格式](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation). 在得到某一地区__内部__的所有IP地址之后，本工具还将对其进行补集运算，以得到地区__以外__的所有IP地址。（当然了， [保留的IP 地址](https://en.wikipedia.org/wiki/Reserved_IP_addresses)会在补集中去除，请放心) 。最终，地区内和地区外的IP地址列表将分别写入文件中。
+本工具将从[APNIC官网](http://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest)抓取与国家或地区相对应的IP地址列表。在将IP列表进行解析，筛选出一个特定地区内的IP地址，并且转化为 [CIDR 格式](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation). 在得到某一 __区内__ 的所有IP地址之后，本工具还将对其进行补集运算，以得到地区 __区外__ 的所有IP地址。（当然， [保留的IP 地址](https://en.wikipedia.org/wiki/Reserved_IP_addresses)会在补集中去除) 。最终，区内和区外的IP地址列表将分别写入文件中。
 
 
 ## Getting Started / 开始使用
