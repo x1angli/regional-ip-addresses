@@ -1,2 +1,4 @@
-netaddr
-requests
+idna>=2.5
+netaddr>=0.7.19
+requests>=2.21.0
+urllib3>=1.22

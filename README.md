@@ -7,16 +7,19 @@ The information (including but not limited to: documentation, code, and data) un
 
 
 ## Introduction / 介绍
-A Python script that generates regional IP (IPv4) addresses per CIDR notation. You import such IP addresses as whitelists into bypassing tools for full access of internet. 
 
-本Python脚本用于生成CIDR格式的地区内的IP (IPv4)地址块。这些IP地址将可作为白名单被导入工具中，从而生成根据目标IP地址区域的路由表，最终目标是构建一个快速、无缝、相对稳定的上网工具。
+A Python script that generates regional IP addresses per CIDR notation. You import such IP addresses as whitelists into bypassing tools for full access of internet. 
+
+本Python脚本用于生成CIDR格式的地区内的IP地址块。这些IP地址将可作为白名单被导入工具中，从而生成根据目标IP地址区域的路由表，最终目标是构建一个快速、无缝、相对稳定的上网工具。
 
 ## Intended Audience / 目标用户
+
 This tool should be used by advanced users who has knowledge regarding networking and system administration. We assume our users are equipped with basic skills of setting up network-bypassing tools and routing table configuration. We recommend users with average IT proficiency use this tool under the guidance of your geek friends. Additionally, please keep in mind: __this tool is never intended to become any firewall-bypassing / IP disguising tool by itself.__
 
 本工具的目标用户群体为具备网络和系统管理知识的高阶用户，且用户应当具备基本的穿越工具和路由表工具配置技能。对于那些普通用户，我们建议阁下在极客朋友的指导下使用本工具。请记住：__本工具本身不能被当作穿越工具或IP伪装工具__
 
 ## How it works / 工作原理
+
 This tool would grab a list IP addresses from the [website of APNIC](http://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest). Such list associates IP addresses with corresponding regions/countries. Then, it would parse the list, filters out IP addresses within a certain region, then converts it into [CIDR nodation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation). After retrieving the set IP addresses inside a specified region, it would derive those IP addresses ourside that region by calculating the complement set. (Of course, those [reserved IP addresses](https://en.wikipedia.org/wiki/Reserved_IP_addresses) would also be excluded from the complement set.) Finally, both IP addresses inside region and the ones outside it would be written into a file, respectively. 
 
 本工具将从[APNIC官网](http://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest)抓取与国家或地区相对应的IP地址列表。在将IP列表进行解析，筛选出一个特定地区内的IP地址，并且转化为 [CIDR 格式](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation). 在得到某一 __区内__ 的所有IP地址之后，本工具还将对其进行补集运算，以得到地区 __区外__ 的所有IP地址。（当然， [保留的IP 地址](https://en.wikipedia.org/wiki/Reserved_IP_addresses)会在补集中去除) 。最终，区内和区外的IP地址列表将分别写入文件中。
@@ -34,16 +37,16 @@ You could simply download those files under the `output` folder under this repo,
 * `output/outwall.txt` 包含墙外的IP地址；那些已经在RFC中被保留的地址已经被去除
 
 ### Advanced Users & Developers / 开发者
-1. Make sure Python 3 is properly installed.
+1. Make sure Python 3.6 or higher is properly installed.
 2. `git clone` this project, or just download the .zip file from github.com and unarchive it, so as to make the project's base folder
 3. Start CLI (DOS-like command line interface, such as Command Prompt in Windows), enter the the project's base folder
 4. Setup Python virtual environment with `virtualenv ...` or `python -m venv` ...
 5. Run: `pip install -r requirements.txt`
-6. Run: `python ipv4cn.py`
+6. Run: `python ipaddr.py`
 
 ... ... ... 
 
-1. 确保系统上已经有Python 3（抱歉，不支持Python 2.x）
+1. 确保系统上已经有Python 3.6 以上（抱歉，不支持Python 2.x）
 2. `git clone` 本代码库
 3. 在命令行中，进入本项目的文件夹目录
 4. 设置并加载 venv / virtualenv
