@@ -4,7 +4,6 @@ import logging
 import os, subprocess
 import requests
 
-
 __author__ = 'x1ang.li'
 
 # ----- Begin constants -----
@@ -12,19 +11,20 @@ APNIC_URL = 'http://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest'
 # ----- End of constants -----
 
 # ----- Begin small helper funcs -----
-gen_scope_key = lambda country, v4v6 : country + '-' + v4v6
+gen_scope_key = lambda country, v4v6: country + '-' + v4v6
 # ----- End of small helper funcs -----
 
 
 logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.INFO)
 log = logging.getLogger(__name__)
 
+
 def generate_ipaddr_tables():
     country_filter = ['CN']
     v4v6_filter = ['ipv4', 'ipv6']
 
     # initialize big_dict with Python's dict comprehension of two loops
-    big_dict = {gen_scope_key(country, v4v6):[] for country in country_filter for v4v6 in v4v6_filter}
+    big_dict = {gen_scope_key(country, v4v6): [] for country in country_filter for v4v6 in v4v6_filter}
 
     log.info("Start downloading APNIC stat...")
     r = requests.get(APNIC_URL, stream=True)
@@ -80,11 +80,5 @@ def generate_ipaddr_tables():
         with open(filename, 'w') as f:
             f.writelines(f"{cidr}\n" for cidr in cidrs)
 
-def git_push():
-    os.system('git stage .')
-    os.system('git commit -m "update ip address tables"')
-    os.system('git push')
-
 if __name__ == '__main__':
     generate_ipaddr_tables()
-    git_push()
