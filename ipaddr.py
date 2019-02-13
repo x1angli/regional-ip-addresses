@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 
 import logging
-import os, subprocess
+import os, subprocess, sys
 import requests
+
+sys.path.append("/opt/pymodules/")
 
 __author__ = 'x1ang.li'
 
