@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
 
 import logging
-import os, subprocess, sys
-import requests
+import urllib.request
 
-sys.path.append("/opt/pymodules/")
 
 __author__ = 'x1ang.li'
 
@@ -29,11 +27,9 @@ def generate_ipaddr_tables():
     big_dict = {gen_scope_key(country, v4v6): [] for country in country_filter for v4v6 in v4v6_filter}
 
     log.info("Start downloading APNIC stat...")
-    r = requests.get(APNIC_URL, stream=True)
-    if r.status_code != 200:
-        log.error(f"Unable to retrieve table")
-        return
-    response = r.text
+    with urllib.request.urlopen(APNIC_URL) as res:
+        response = str(res.read(),'utf-8')
+
     log.info("Finished downloading APNIC stat.")
 
     log.info("Start parsing")
