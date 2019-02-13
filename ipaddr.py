@@ -75,7 +75,7 @@ def generate_ipaddr_tables():
         cidrs = big_dict[key]
         log.info(f"There are {len(cidrs)} CIDR blocks in {key}.")
 
-        filename = 'tmp/' + key + '.txt'
+        filename = 'output/' + key + '.txt'
         log.info(f"Writing output file: {filename}")
         with open(filename, 'w') as f:
             f.writelines(f"{cidr}\n" for cidr in cidrs)
