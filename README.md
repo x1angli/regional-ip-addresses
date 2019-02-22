@@ -72,7 +72,7 @@ We are fully aware that there are some pieces of existing wheels that can achiev
 You can use tools such as [Shorewall] to edit the IP table of your OS. 
 
 [Shorewall]:#shorewall "Shorewall"
-> <a name="shorewall" href="http://shorewall.org/Introduction.html">Shorewall</a>: is an open source firewall tool for Linux that builds upon the Netfilter (iptables/ipchains) system built into the Linux kernel, making it easier to manage more complex configuration schemes by providing a higher level of abstraction for describing rules using text files."
+> <a name="shorewall"><b>Shorewall</b></a>: is an open source firewall tool for Linux that builds upon the Netfilter (iptables/ipchains) system built into the Linux kernel, making it easier to manage more complex configuration schemes by providing a higher level of abstraction for describing rules using text files."
 > Official Website: http://shorewall.org
 > Sourceforge: https://sourceforge.net/projects/shorewall/
 > The most common two-interface example: http://shorewall.org/two-interface.htm
