@@ -69,9 +69,9 @@ We are fully aware that there are some pieces of existing wheels that can achiev
     curl 'http://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest' | grep ipv4 | grep CN | awk -F\| '{ printf("%s/%d\n", $4, 32-log($5)/log(2)) }' > chnroute.txt
 
 #### 3. After we obtain the output IP address blocks, so what? / 得到文件以后，我们能干什么
-You can use tools such as ![Shorewall][Shorewall]　to edit the IP table of your OS. 
+You can use tools such as Shorewall[^1]　to edit the IP table of your OS. 
 
-[Shorewall]: http://shorewall.org/Introduction.html "Shorewall is an open source firewall tool for Linux that builds upon the Netfilter (iptables/ipchains) system built into the Linux kernel, making it easier to manage more complex configuration schemes by providing a higher level of abstraction for describing rules using text files."
+[^1]: http://shorewall.org/Introduction.html "Shorewall is an open source firewall tool for Linux that builds upon the Netfilter (iptables/ipchains) system built into the Linux kernel, making it easier to manage more complex configuration schemes by providing a higher level of abstraction for describing rules using text files."
 
 ## Random Thoughts / 随笔
 > “望长城内外，惟余莽莽；大河上下，顿失滔滔。”
