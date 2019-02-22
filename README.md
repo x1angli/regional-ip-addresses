@@ -71,8 +71,9 @@ We are fully aware that there are some pieces of existing wheels that can achiev
 #### 3. After we obtain the output IP address blocks, so what? / 得到文件以后，我们能干什么
 You can use tools such as [Shorewall] to edit the IP table of your OS. 
 
-[Shorewall]:#shorewall "Shorewall"
-> <a name="shorewall"><b>Shorewall</b></a>: is an open source firewall tool for Linux that builds upon the Netfilter (iptables/ipchains) system built into the Linux kernel, making it easier to manage more complex configuration schemes by providing a higher level of abstraction for describing rules using text files."
+[Shorewall]:#user-content-shorewall "Shorewall"
+> ##### Shorewall #####
+> is an open source firewall tool for Linux that builds upon the Netfilter (iptables/ipchains) system built into the Linux kernel, making it easier to manage more complex configuration schemes by providing a higher level of abstraction for describing rules using text files."
 > Official Website: http://shorewall.org
 > Sourceforge: https://sourceforge.net/projects/shorewall/
 > The most common two-interface example: http://shorewall.org/two-interface.htm
