@@ -39,7 +39,7 @@ You could simply download those files under the `output` folder under this repo,
 ### Advanced Users & Developers / 开发者
 1. Make sure Python 3.6 or higher is properly installed.
 2. `git clone` this project, or just download the .zip file from github.com and unarchive it, so as to make the project's base folder
-3. Start CLI (DOS-like command line interface, such as Command Prompt in Windows), enter the the project's base folder
+3. Start CLI (DOS-like terminal, such as Command Prompt in Windows), enter the the project's base folder
 4. Setup Python virtual environment with `virtualenv ...` or `python -m venv` ...
 5. Run: `pip install -r requirements.txt`
 6. Run: `python ipaddr.py`
@@ -51,7 +51,7 @@ You could simply download those files under the `output` folder under this repo,
 3. 在命令行中，进入本项目的文件夹目录
 4. 设置并加载 venv / virtualenv
 5. 运行 `pip install -r requirements.txt` 以加载requests等第三方模块
-6. 运行 `python ipv4cn.py`
+6. 运行 `python ipaddr.py`
 
 ## FAQ / 常见问答
 #### 1. What's the benefit of using IP whitelists? / 使用IP地址的白名单有什么好处？
