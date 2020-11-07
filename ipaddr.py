@@ -95,24 +95,20 @@ def init():
 
 
 def populate_rawstr_table():
-    log.info("Attempting to load local APNIC stats file...")
-    if os.path.exists(APNIC_CACHE_PATH) and os.path.isfile(APNIC_CACHE_PATH):
-        mod_time = os.path.getmtime(APNIC_CACHE_PATH)
-        now_time = time.time()
-        age = now_time - mod_time
-        if age < 3600:
-            log.info("Loading stats file from local cache file")
-            with open(APNIC_CACHE_PATH, 'r') as f:
-                stats_data = f.read()
-        else:
-            log.info("Loading stats file from APNIC website")
-            log.info("Downloading APNIC stats file...")
-            with urllib.request.urlopen(APNIC_URL) as res:
-                stats_data = str(res.read(), 'utf-8')
-            log.info("Downloaded APNIC stats file.")
-            with open(APNIC_CACHE_PATH, 'w') as f:
-                f.write(stats_data)
-    log.info("Parsing stats file")
+    if os.path.exists(APNIC_CACHE_PATH) and os.path.isfile(APNIC_CACHE_PATH) \
+         and (time.time() - os.path.getmtime(APNIC_CACHE_PATH) < 3600):
+        log.info("Loading stats file from local cache file")
+        with open(APNIC_CACHE_PATH, 'r') as f:
+            stats_data = f.read()
+    else:
+        log.info("Loading stats file from APNIC website")
+        log.debug("Downloading APNIC stats file...")
+        with urllib.request.urlopen(APNIC_URL) as res:
+            stats_data = str(res.read(), 'utf-8')
+        log.debug("Downloaded APNIC stats file.")
+        with open(APNIC_CACHE_PATH, 'w') as f:
+            f.write(stats_data)
+    log.debug("Parsing stats file")
 
     lines = stats_data.splitlines(False)
     for line in lines:
@@ -144,7 +140,7 @@ def populate_rawstr_table():
 
         rawstr_table[key].append(start + '/' + prefix)
 
-    log.info("Parsed stats file")
+    log.debug("Parsed stats file")
 
 
 def write_file(scope: str, content: IPSet, prefix=''):
@@ -152,11 +148,10 @@ def write_file(scope: str, content: IPSet, prefix=''):
         prefix = prefix + '-'
     filename = f'output/{prefix}{scope}.txt'
     cidrs = content.iter_cidrs()
-    log.info(f"Writing output file: {filename}")
-    log.info(f"There are {len(cidrs)} CIDR blocks in {filename}.")
+    log.info(f"Writing output file: {filename} with {len(cidrs)} CIDR blocks ...")
     with open(filename, 'w') as f:
-        f.writelines(f"{cidr}\n" for cidr in cidrs)
-    log.info(f"Wrote output file: {filename}")
+        f.writelines(f'{cidr}\n' for cidr in cidrs)
+    log.debug(f"Wrote output file: {filename}")
 
 
 def cal_n_write_domestic_table():
