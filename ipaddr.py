@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 import logging
+import os.path
+import time
 import urllib.request
 from netaddr import IPSet, IPAddress, IPNetwork
 
@@ -19,6 +21,7 @@ NETWORK_TYPES = ['ipv4', 'ipv6']
 
 # ----- Begin constants -----
 APNIC_URL = 'https://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest'
+APNIC_CACHE_PATH = './cache/apnic.txt'
 
 # Reserved IP addresses for special purposes. See:
 # https://en.wikipedia.org/wiki/Reserved_IP_addresses
@@ -87,17 +90,31 @@ def init():
     global rawstr_table
     rawstr_table = {f'{country}-{net_type}': [] for country in COUNTRY_CODES for net_type in NETWORK_TYPES}
 
+    if not os.path.exists('cache'):
+        os.makedirs('cache')
+
 
 def populate_rawstr_table():
-    log.info("Downloading APNIC stats file...")
-    with urllib.request.urlopen(APNIC_URL) as res:
-        response = str(res.read(), 'utf-8')
-
-    log.info("Downloaded APNIC stats file.")
-
+    log.info("Attempting to load local APNIC stats file...")
+    if os.path.exists(APNIC_CACHE_PATH) and os.path.isfile(APNIC_CACHE_PATH):
+        mod_time = os.path.getmtime(APNIC_CACHE_PATH)
+        now_time = time.time()
+        age = now_time - mod_time
+        if age < 3600:
+            log.info("Loading stats file from local cache file")
+            with open(APNIC_CACHE_PATH, 'r') as f:
+                stats_data = f.read()
+        else:
+            log.info("Loading stats file from APNIC website")
+            log.info("Downloading APNIC stats file...")
+            with urllib.request.urlopen(APNIC_URL) as res:
+                stats_data = str(res.read(), 'utf-8')
+            log.info("Downloaded APNIC stats file.")
+            with open(APNIC_CACHE_PATH, 'w') as f:
+                f.write(stats_data)
     log.info("Parsing stats file")
 
-    lines = response.splitlines(False)
+    lines = stats_data.splitlines(False)
     for line in lines:
         columns = line.split('|')
         if len(columns) != 7:

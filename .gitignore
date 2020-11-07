@@ -17,3 +17,6 @@ sdist/
 
 # Mac stuff
 .DS_Store
+
+# Project-Specific
+cache/
